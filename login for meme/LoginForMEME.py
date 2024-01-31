@@ -11,7 +11,7 @@ def login():
         input_password = input(green("Enter Your Password: "))
         print()
 
-        with open(f"C:/Users/Jeloje8/Desktop/Projects/learn python/login for meme/users/{input_username}.txt", "r") as file:       # בדיקה האם השם משתמש קיים
+        with open(f"users/{input_username}.txt", "r") as file:       # בדיקה האם השם משתמש קיים
             # אם המשתמש קיים בודקים האם הסיסמה תואמת
             password = file.read()
         if input_password == password: 
@@ -40,13 +40,13 @@ def sign_up():
 
     # בדיקה האם יש כבר משתמש באותו השמשתמש שנבחר. אם קיים: שגיאה וחזרה להתחלה
     from os import path
-    if path.isfile(f"C:/Users/Jeloje8/Desktop/Projects/learn python/login for meme/users/{input_username}.txt"):
+    if path.isfile(f"users/{input_username}.txt"):
         print(red("Username Already Exists"))
         print()
         return main()
 
     # יצירת משתמש
-    with open(f"C:/Users/Jeloje8/Desktop/Projects/learn python/login for meme/users/{input_username}.txt", "w") as file:    # מיקום שמירת משתמשים
+    with open(f"users/{input_username}.txt", "w") as file:    # מיקום שמירת משתמשים
         # הכנסת סיסמה לקובץ משתמש
         file.write(input_password)
 
